@@ -1,7 +1,11 @@
 import json
 
 def lambda_handler(event, context):
-    return {
+    response = {
         "statusCode": 200,
-        "body": json.dumps("Hello from LocalStack Lambda running as a Docker image!")
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": json.dumps({"message": "Hello from LocalStack Lambda running as a Docker image!"})
     }
+    return response
